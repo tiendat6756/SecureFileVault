@@ -36,6 +36,7 @@ namespace SecureFileVault
             tempFileManager.Cleanup();
             System.Windows.Forms.Application.ApplicationExit += (s, e) =>
             {
+                MessageBox.Show("ApplicationExit triggered!");
                 tempFileManager.Cleanup();
             };
 
@@ -60,7 +61,7 @@ namespace SecureFileVault
                }
             }    
 
-            System.Windows.Forms.Application.Run(new LoginForm(authService, controller));
+            System.Windows.Forms.Application.Run(new LoginForm(authService, controller, tempFileManager));
         }
     }
 }

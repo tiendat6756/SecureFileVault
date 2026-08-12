@@ -1,4 +1,7 @@
 ﻿using SecureFileVault.Application;
+using SecureFileVault.Domain;
+using SecureFileVault.Infrastructure;
+using SecureFileVault.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -6,8 +9,6 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using SecureFileVault.Domain;
-using SecureFileVault.Services;
 
 
 namespace SecureFileVault
@@ -16,14 +17,21 @@ namespace SecureFileVault
     {
         private User _currentUser;
         private VaultController _controller;
-        public MainForm(User user, VaultController controller)
+        private TempFileManager _tempFileManager;
+        public MainForm(User user, VaultController controller, TempFileManager tempFileManager)
         {
             InitializeComponent();
             _currentUser = user;
             _controller = controller;
+            _tempFileManager = tempFileManager;
 
             LoadFiles();
             SetupUI();
+        }
+        protected override void OnFormClosed(FormClosedEventArgs e)
+        {
+            _tempFileManager.Cleanup();
+            base.OnFormClosed(e);
         }
 
         private void LoadFiles()

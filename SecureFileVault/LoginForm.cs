@@ -9,11 +9,13 @@ namespace SecureFileVault
     {
         private AuthenticationService _authenticationService;
         private VaultController _vaultController;
-        public LoginForm(AuthenticationService authenticationService, VaultController controller)
+        private TempFileManager _tempFileManager;
+        public LoginForm(AuthenticationService authenticationService, VaultController controller, TempFileManager tempFileManager)
         {
             InitializeComponent();
             _authenticationService = authenticationService;
             _vaultController = controller;
+            _tempFileManager = tempFileManager;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -47,7 +49,7 @@ namespace SecureFileVault
             {
                 var user = _authenticationService.GetUser(username);
 
-                var mainForm = new MainForm(user, _vaultController);
+                var mainForm = new MainForm(user, _vaultController, _tempFileManager);
                 mainForm.Show();
                 this.Hide();
             }
