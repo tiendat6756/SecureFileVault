@@ -2,7 +2,6 @@ using SecureFileVault.Application;
 using SecureFileVault.Services;
 using SecureFileVault.Infrastructure;
 using SecureFileVault.Domain;
-using System.Windows.Forms;
 namespace SecureFileVault
 {
     public static class Program
@@ -33,18 +32,32 @@ namespace SecureFileVault
                 key = keyManager.GenerateAndSaveKey();
             }
 
+            var tempFileManager = new TempFileManager("temp");
+            tempFileManager.Cleanup();
+            System.Windows.Forms.Application.ApplicationExit += (s, e) =>
+            {
+                tempFileManager.Cleanup();
+            };
+
             var controller = new VaultController(
                 authService,
                 accessService,
                 permissionService,
                 new FileStorageService("storage", key),
-                new TempFileManager("temp"),
+                 tempFileManager,
                 fileRepo
             );
 
             if (!authService.AdminExists())
             {
-                authService.RegisterAdmin("admin", "123");
+               using (var createAdminForm = new CreateAdminForm(authService))
+               {
+                   var result = createAdminForm.ShowDialog();
+                   if (result != System.Windows.Forms.DialogResult.OK)
+                   {
+                       return;
+                   }
+               }
             }    
 
             System.Windows.Forms.Application.Run(new LoginForm(authService, controller));

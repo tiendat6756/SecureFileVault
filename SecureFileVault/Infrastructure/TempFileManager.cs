@@ -50,11 +50,23 @@ namespace SecureFileVault.Infrastructure
 
         public void Cleanup()
         {
-            foreach(var file in _openedFiles)
+            if (!Directory.Exists(_tempFolder))
+            {  
+                return; 
+            }
+            foreach(var file in Directory.GetFiles(_tempFolder))
             {
-                if (File.Exists(file))
+                try
                 {
                     File.Delete(file);
+                }
+                catch (IOException ex)
+                {
+                    Console.WriteLine($"Could not delete temporary file: {file}. {ex.Message}");
+                }
+                catch (UnauthorizedAccessException ex)
+                {
+                    Console.WriteLine($"Access denied when deleting temporary file: {file}. {ex.Message}");
                 }
             }
             _openedFiles.Clear();
