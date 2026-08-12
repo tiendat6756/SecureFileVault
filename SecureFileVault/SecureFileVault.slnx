@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="../SecureFileVault.Tests/SecureFileVault.Tests.csproj" Id="3c998b69-d5c2-4930-81c4-a7ca636c3d36" />
+  <Project Path="SecureFileVault.csproj" />
+</Solution>
