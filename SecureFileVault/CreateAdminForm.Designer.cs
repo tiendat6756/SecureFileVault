@@ -41,33 +41,41 @@
             // 
             // btnCreate
             // 
-            btnCreate.Location = new Point(726, 269);
+            btnCreate.Anchor = AnchorStyles.Top;
+            btnCreate.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnCreate.Location = new Point(701, 381);
             btnCreate.Name = "btnCreate";
-            btnCreate.Size = new Size(75, 23);
+            btnCreate.Size = new Size(100, 32);
             btnCreate.TabIndex = 9;
             btnCreate.Text = "Create";
             btnCreate.UseVisualStyleBackColor = true;
-            btnCreate.Click += this.btnCreate_Click;
+            btnCreate.Click += btnCreate_Click;
             // 
             // txtPassword
             // 
-            txtPassword.Location = new Point(697, 196);
+            txtPassword.Anchor = AnchorStyles.Top;
+            txtPassword.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtPassword.Location = new Point(652, 261);
             txtPassword.Name = "txtPassword";
-            txtPassword.Size = new Size(159, 23);
+            txtPassword.ShortcutsEnabled = false;
+            txtPassword.Size = new Size(200, 25);
             txtPassword.TabIndex = 8;
             txtPassword.UseSystemPasswordChar = true;
             // 
             // txtUsername
             // 
-            txtUsername.Location = new Point(697, 152);
+            txtUsername.Anchor = AnchorStyles.Top;
+            txtUsername.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtUsername.Location = new Point(652, 200);
             txtUsername.Name = "txtUsername";
-            txtUsername.Size = new Size(159, 23);
+            txtUsername.Size = new Size(200, 25);
             txtUsername.TabIndex = 7;
             // 
             // label2
             // 
+            label2.Anchor = AnchorStyles.Top;
             label2.AutoSize = true;
-            label2.Location = new Point(697, 178);
+            label2.Location = new Point(652, 243);
             label2.Name = "label2";
             label2.Size = new Size(57, 15);
             label2.TabIndex = 6;
@@ -75,8 +83,9 @@
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.Top;
             label1.AutoSize = true;
-            label1.Location = new Point(697, 134);
+            label1.Location = new Point(652, 182);
             label1.Name = "label1";
             label1.Size = new Size(60, 15);
             label1.TabIndex = 5;
@@ -84,35 +93,43 @@
             // 
             // label3
             // 
+            label3.Anchor = AnchorStyles.Top;
             label3.AutoSize = true;
-            label3.Font = new Font("Times New Roman", 48F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(436, 11);
+            label3.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.Location = new Point(595, 95);
             label3.Name = "label3";
-            label3.Size = new Size(684, 73);
+            label3.Size = new Size(311, 45);
             label3.TabIndex = 10;
             label3.Text = "SECURE FILE VAULT";
+            label3.TextAlign = ContentAlignment.MiddleCenter;
+            label3.Click += label3_Click_1;
             // 
             // label4
             // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Times New Roman", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.Location = new Point(697, 100);
+            label4.Anchor = AnchorStyles.Top;
+            label4.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.Location = new Point(652, 140);
             label4.Name = "label4";
-            label4.Size = new Size(184, 23);
+            label4.Size = new Size(200, 30);
             label4.TabIndex = 11;
             label4.Text = "Create Administrator";
+            label4.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // txtConfirmPassword
             // 
-            txtConfirmPassword.Location = new Point(697, 240);
+            txtConfirmPassword.Anchor = AnchorStyles.Top;
+            txtConfirmPassword.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtConfirmPassword.Location = new Point(652, 336);
             txtConfirmPassword.Name = "txtConfirmPassword";
-            txtConfirmPassword.Size = new Size(159, 23);
+            txtConfirmPassword.Size = new Size(200, 25);
             txtConfirmPassword.TabIndex = 12;
+            txtConfirmPassword.UseSystemPasswordChar = true;
             // 
             // label5
             // 
+            label5.Anchor = AnchorStyles.Top;
             label5.AutoSize = true;
-            label5.Location = new Point(697, 222);
+            label5.Location = new Point(652, 318);
             label5.Name = "label5";
             label5.Size = new Size(104, 15);
             label5.TabIndex = 13;
@@ -122,7 +139,8 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1518, 684);
+            BackColor = Color.WhiteSmoke;
+            ClientSize = new Size(1517, 791);
             Controls.Add(label5);
             Controls.Add(txtConfirmPassword);
             Controls.Add(label4);
@@ -132,8 +150,11 @@
             Controls.Add(txtUsername);
             Controls.Add(label2);
             Controls.Add(label1);
+            ForeColor = Color.DarkSlateGray;
+            MinimumSize = new Size(600, 450);
             Name = "CreateAdminForm";
-            Text = "Form1";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Create Administrator";
             ResumeLayout(false);
             PerformLayout();
         }

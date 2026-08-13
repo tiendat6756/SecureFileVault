@@ -174,7 +174,7 @@ namespace SecureFileVault
                 else
                 {
                     MessageBox.Show("Failed to remove Viewer !");
-                }    
+                }
             }
 
         }
@@ -190,6 +190,16 @@ namespace SecureFileVault
             }
 
             MessageBox.Show(sb.ToString(), "All Users");
+        }
+
+        private void listFiles_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
