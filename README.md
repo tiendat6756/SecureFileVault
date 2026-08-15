@@ -96,7 +96,7 @@ Failed login attempts are tracked. When the configured threshold is exceeded, th
 
 ## Screenshots
 ### Login
-<img src="images/Screenshots/login.png" width="800">
+<img src="images/Screenshots/login_screen.png" width="800">
 
 ### Create Administrator
 <img src="images/Screenshots/create_admin.png" width="800">
